@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Rock, Paper, Scissors></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+    
+    var us = 0;
+    var cs = 0;
+    
+        function rock() {
+            
+            var computerChoice = changeImage();
+            
+            switch(computerChoice){
+            case "rock":
+            document.getElementById("r").innerHTML="You selected rock and the computer selected rock, it's a draw!";
+            break;
+            case "paper":
+            document.getElementById("r").innerHTML="You selected rock and the computer selected paper, you lose!";
+            cs++;
+            document.getElementById("us").innerHTML=us;
+            break;
+            case "scissors":
+            document.getElementById("r").innerHTML="You selected rock and the computer selected scissors, you win!";
+            us++;
+            document.getElementById("cs").innerHTML=cs;
+            break;
+            }
+            
+            }
+            
+            function paper() {
+            var computerChoice = changeImage();            
+            switch(computerChoice){
+            case "rock":
+            document.getElementById("r").innerHTML="You selected paper and the computer selected rock, you win!";
+            us++;
+            document.getElementById("us").innerHTML=us;
+            break;
+            case "paper":
+            document.getElementById("r").innerHTML="You selected paper and the computer selected paper, it's a draw!";
+            break;
+            case "scissors":
+            document.getElementById("r").innerHTML="You selected paper and the computer selected scissors, you lose!";
+            cs++;
+            document.getElementById("cs").innerHTML=cs;
+            break;
+            }
+            }
+            
+            function scissors() {
+            var computerChoice = changeImage();
+            switch(computerChoice){
+            case "rock":
+            document.getElementById("r").innerHTML="You selected scissors and the computer selected rock, you lose!";
+            cs++;
+            document.getElementById("cs").innerHTML=cs;
+            break;
+            case "paper":
+            document.getElementById("r").innerHTML="You selected scissors and the computer selected paper, you win!";
+            us++;
+            document.getElementById("us").innerHTML=us;
+            break;
+            case "scissors":
+            document.getElementById("r").innerHTML="You selected scissors and the computer selected scissors, it's a draw!";
+            break;
+            }
+             }
+            
+            
+            function changeImage() {
+                        
+                        var response;   
+                        var rand=Math.random();
+                            if (rand < 0.33)
+                            {
+                                document.getElementById("imgClickAndChange").src = "http://weknowyourdreams.com/images/rock/rock-01.jpg";
+                                response = "rock";
+                            }
+                            else if (rand > 0.33 &&  rand < 0.66)
+                            {
+                                document.getElementById("imgClickAndChange").src = "http://www.backgroundsy.com/file/large/crumpled-paper.jpg";
+                                response = "paper";
+                            }
+                            else 
+                            {
+                                document.getElementById("imgClickAndChange").src = "http://pngimg.com/upload/scissors_PNG25.png"; 
+                                response = "scissors";
+                            }
+                            return response;
+                            // setTimeout(function(){ document.getElementById("imgClickAndChange").src = "http://www.abc.net.au/news/image/954416-3x2-940x627.jpg"; }, 2000);
+                        }
+    </script>
+</head>
+
+
+<body>
+    <div class="container">
+
+        <div class="page-header">
+            <h1 class="text-center">Rock, Paper, Scissors?</h1>
+        </div>
+        <br>
+
+        <h2 class="text-center">Select Rock, Paper or Scissors and see if you can win!</h2>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-md-4 btn-group-vertical center-block" style="float:none">
+                <button type="button" class="btn btn-default btn-lg" onclick="rock()">Rock</button>
+                <button type="button" class="btn btn-default btn-lg" onclick="paper()">Paper</button>
+                <button type="button" class="btn btn-default btn-lg" onclick="scissors()">Scissors</button>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <img alt="questionmark" src="http://www.abc.net.au/news/image/954416-3x2-940x627.jpg" id="imgClickAndChange" class="center-block img-rounded"
+            width="230" height="230" />
+        </div>
+        
+         <h2 class="text-center">Result</h2>
+         <h3 class="text-center" id="r"></h3>
+         
+         <h2 class="text-center">Your score</h2>
+         <h3 class="text-center" id="us">0</h3>
+         
+         <h2 class="text-center">Computer score </h2>
+         <h3 class="text-center" id="cs">0</h3>
+
+    </div>
+    <!--closes container-->
+</body>
+
+</html>
